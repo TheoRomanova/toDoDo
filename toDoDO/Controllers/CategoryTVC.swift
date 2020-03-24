@@ -11,7 +11,7 @@ import RealmSwift
 import SwipeCellKit
 
 class CategoryTVC: SwipeTVC {
-
+    
     var categoriesArray: Results<Category>?
     
     let realm = try! Realm()
@@ -31,8 +31,7 @@ class CategoryTVC: SwipeTVC {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as! SwipeTableViewCell
-        cell.delegate = self
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
         
         if let category = categoriesArray?[indexPath.row] {
             cell.textLabel?.text = category.title
@@ -80,7 +79,7 @@ class CategoryTVC: SwipeTVC {
     }
     
     func loadCategories() {
-      
+        
         categoriesArray = realm.objects(Category.self).sorted(byKeyPath: "dateCreated", ascending: false) //пряи добавлении каждой единцы срабатывает 
         tableView.reloadData()
         
@@ -101,37 +100,23 @@ class CategoryTVC: SwipeTVC {
             destinationVC.chosenCategory = categoriesArray?[indexPath.row]
         }
     }
-}
-
-     // MARK: - SwipeTableViewCellDelegate Methods
-
-extension CategoryTVC: SwipeTableViewCellDelegate {
-
-  func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
-      guard orientation == .right else { return nil }
-
-      let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
-      
+    
+    //MARK: - Delete Data From Swipe
+ 
+    override func deleteAction(at indexPath: IndexPath) {
+        
         if let categoryForDeletion = self.categoriesArray?[indexPath.row] {
-        do {
-            try self.realm.write {
-                self.realm.delete(categoryForDeletion)
+            do {
+                try self.realm.write {
+                    self.realm.delete(categoryForDeletion)
+                }
+            } catch {
+                print("Error deleting category \(error)")
             }
-        } catch {
-            print("Error deleting category \(error)")
         }
-      }
     }
-      // customize the action appearanceΩ
-    deleteAction.image = UIImage(named: "delete-icon")?.withTintColor(.white)
-    deleteAction.title = ""
-    deleteAction.backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.5098180579, blue: 0.9686274529, alpha: 1)
-      return [deleteAction]
-  }
-
-  func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
-      var options = SwipeOptions()
-      options.expansionStyle = .destructive
-      return options
-  }
 }
+
+
+
+

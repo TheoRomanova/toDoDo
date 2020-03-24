@@ -27,7 +27,7 @@ class TodoListTVC: SwipeTVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        
     }
     
     // MARK: - Table view data source
@@ -39,12 +39,13 @@ class TodoListTVC: SwipeTVC {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath)
-       
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
+        
         if let item = itemsArray?[indexPath.row] {
             cell.textLabel?.text = item.title
             cell.accessoryType = item.done == true ? .checkmark : .none
         }
+        
         return cell
     }
     // MARK: - Table view Delegate
@@ -52,7 +53,7 @@ class TodoListTVC: SwipeTVC {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if let item = itemsArray?[indexPath.row] {
-          
+            
             do {
                 try realm.write {
                     item.done = !item.done
@@ -70,25 +71,25 @@ class TodoListTVC: SwipeTVC {
     @IBAction func addNewItems(_ sender: UIBarButtonItem) {
         
         var textField = UITextField()
-       
+        
         let alert = UIAlertController(title: "Add Item", message: "", preferredStyle: .alert)       
         let action = UIAlertAction(title: "Add", style: .default) { (action) in
             
             if let mainCategory = self.chosenCategory {
-            do {
-                try self.realm.write {
-                    let newItem = Item()
-                    newItem.title = textField.text!
-                    newItem.dateCreated = Date()
-                   
-                    mainCategory.items.append(newItem)
+                do {
+                    try self.realm.write {
+                        let newItem = Item()
+                        newItem.title = textField.text!
+                        newItem.dateCreated = Date()
+                        
+                        mainCategory.items.append(newItem)
+                    }
+                } catch {
+                    print("Error saving new items, \(error)")
                 }
-            } catch {
-                print("Error saving new items, \(error)")
-            }
-           
+                
                 self.tableView.reloadData()
-        }
+            }
         }
         alert.addTextField { (field) in
             textField = field
@@ -105,9 +106,26 @@ class TodoListTVC: SwipeTVC {
         itemsArray = chosenCategory?.items.sorted(byKeyPath: "dateCreated", ascending: false)
         tableView.reloadData()
     }
+    
+    //MARK: - Delete Data From Swipe
+    
+    override func deleteAction(at indexPath: IndexPath) {
+        
+        if let categoryForDeletion = itemsArray?[indexPath.row] {
+            
+            do {
+                try realm.write {
+                    realm.delete(categoryForDeletion)
+                }
+            } catch {
+                print("Error deleting item \(error)")
+            }
+        }
+    }
 }
 
 //MARK: - UISearchBarDelegate Methods
+
 extension TodoListTVC: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SwipeCellKit
 
-class SwipeTVC: UITableViewController {
+class SwipeTVC: UITableViewController, SwipeTableViewCellDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,17 +17,34 @@ class SwipeTVC: UITableViewController {
         
     }
     
-    // MARK: - Table view data source
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SwipeTableViewCell
+        cell.delegate = self
+        return cell
+    }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+        
+        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+            
+            self.deleteAction(at: indexPath)
+        }
+        // customize the action appearanceΩ
+        deleteAction.image = UIImage(named: "delete-icon")?.withTintColor(.white)
+        deleteAction.title = ""
+        deleteAction.backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.5098180579, blue: 0.9686274529, alpha: 1)
+        return [deleteAction]
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
+        var options = SwipeOptions()
+        options.expansionStyle = .destructive
+        return options
     }
-
-
+    
+    func deleteAction(at indexPath: IndexPath) {
+        print("Hello")
+    }
 }
