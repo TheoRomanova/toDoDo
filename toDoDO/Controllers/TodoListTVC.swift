@@ -9,10 +9,13 @@
 import UIKit
 import RealmSwift
 import SwipeCellKit
+import ChameleonFramework
 
 class TodoListTVC: SwipeTVC {
     
-    @IBOutlet var searchBar: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    
     
     var itemsArray: Results<Item>?
     
@@ -27,7 +30,28 @@ class TodoListTVC: SwipeTVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let tableColor = chosenCategory?.color {
+            tableView.backgroundColor = UIColor(hexString: tableColor)
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         
+        if let colorCategory = chosenCategory?.color {
+            
+            title = chosenCategory?.title
+            
+            guard let navBar = navigationController?.navigationBar else { fatalError("Navigation controller does not exist") }
+            
+            if let navBarColor = UIColor(hexString: colorCategory) {
+                
+                navBar.backgroundColor = navBarColor
+                navBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : ContrastColorOf(navBarColor, returnFlat: true)]
+                searchBar.barTintColor = navBarColor
+                
+            }
+            
+        }
     }
     
     // MARK: - Table view data source
@@ -44,6 +68,11 @@ class TodoListTVC: SwipeTVC {
         if let item = itemsArray?[indexPath.row] {
             cell.textLabel?.text = item.title
             cell.accessoryType = item.done == true ? .checkmark : .none
+            
+            if let color = UIColor(hexString: chosenCategory!.color)?.darken(byPercentage: CGFloat(indexPath.row) / CGFloat(itemsArray!.count)) {
+                cell.backgroundColor = color
+                cell.textLabel?.textColor = UIColor(contrastingBlackOrWhiteColorOn: color, isFlat: true)
+            }
         }
         
         return cell

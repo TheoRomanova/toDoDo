@@ -31,7 +31,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="ToDoDo" id="B4V-Ed-Ip6">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ili-Bj-Qjl">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="addNewCategory:" destination="MJ6-ud-nYu" id="aMg-Lo-aef"/>
                             </connections>
@@ -85,7 +84,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="searchBar" destination="vxV-Zy-1HF" id="nhb-3T-kb8"/>
+                        <outlet property="searchBar" destination="1PX-jX-eCK" id="fYz-Ol-5tO"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ig6-xs-9Zv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -97,15 +96,15 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fgd-Ap-M1S" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rUK-y6-8aM">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="rUK-y6-8aM">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.91000000000000003" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="0.91000000000000003" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.41176470590000003" green="0.46666666670000001" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.74117647058823533" green="0.51372549019607838" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="30"/>
-                            <color key="textColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="textShadowColor" red="0.92549019610000005" green="0.83921568629999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">

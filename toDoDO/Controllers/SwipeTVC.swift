@@ -15,6 +15,7 @@ class SwipeTVC: UITableViewController, SwipeTableViewCellDelegate {
         super.viewDidLoad()
         tableView.rowHeight = 70.0
         
+         tableView.separatorStyle = .none
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -45,6 +46,5 @@ class SwipeTVC: UITableViewController, SwipeTableViewCellDelegate {
     }
     
     func deleteAction(at indexPath: IndexPath) {
-        print("Hello")
     }
 }

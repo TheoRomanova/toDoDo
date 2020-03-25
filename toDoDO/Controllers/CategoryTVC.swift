@@ -9,6 +9,7 @@
 import UIKit
 import RealmSwift
 import SwipeCellKit
+import ChameleonFramework
 
 class CategoryTVC: SwipeTVC {
     
@@ -19,7 +20,18 @@ class CategoryTVC: SwipeTVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.backgroundColor = UIColor(hexString: "BD83CE")
+        
         loadCategories()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        guard let navBar = navigationController?.navigationBar else { fatalError("Navigation controller does not exist") }
+        
+        navBar.backgroundColor = UIColor(hexString: "BD83CE")
+        // navBar.largeTitleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "ChalkboardSE-Bold", size: 40)!]
+        
     }
     
     // MARK: - TableView datSource Methods
@@ -33,9 +45,13 @@ class CategoryTVC: SwipeTVC {
         
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
         
-        if let category = categoriesArray?[indexPath.row] {
-            cell.textLabel?.text = category.title
+        cell.textLabel?.text = categoriesArray?[indexPath.row].title ?? "No Categories Added Yet"
+        
+        if let color = UIColor(hexString: categoriesArray?[indexPath.row].color ?? "C8B0FF") {
+            cell.backgroundColor = color
+            cell.textLabel?.textColor = UIColor(contrastingBlackOrWhiteColorOn: color, isFlat: true)
         }
+        
         return cell
     }
     
@@ -51,6 +67,7 @@ class CategoryTVC: SwipeTVC {
             let newCategory = Category()
             newCategory.title = textField.text!
             newCategory.dateCreated = Date()
+            newCategory.color = UIColor.randomFlat().hexValue()
             self.save(category: newCategory)
         }
         
@@ -102,7 +119,7 @@ class CategoryTVC: SwipeTVC {
     }
     
     //MARK: - Delete Data From Swipe
- 
+    
     override func deleteAction(at indexPath: IndexPath) {
         
         if let categoryForDeletion = self.categoriesArray?[indexPath.row] {
