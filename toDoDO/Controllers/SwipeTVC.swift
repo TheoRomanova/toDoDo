@@ -13,9 +13,9 @@ class SwipeTVC: UITableViewController, SwipeTableViewCellDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 70.0
         
-         tableView.separatorStyle = .none
+        tableView.rowHeight = 65.0
+        tableView.separatorStyle = .none
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -32,10 +32,10 @@ class SwipeTVC: UITableViewController, SwipeTableViewCellDelegate {
             
             self.deleteAction(at: indexPath)
         }
-        // customize the action appearanceΩ
-        deleteAction.image = UIImage(named: "delete-icon")?.withTintColor(.white)
+        
+        deleteAction.image = UIImage(named: "delete-icon")?.withTintColor(.flatWhiteDark())
         deleteAction.title = ""
-        deleteAction.backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.5098180579, blue: 0.9686274529, alpha: 1)
+        deleteAction.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
         return [deleteAction]
     }
     

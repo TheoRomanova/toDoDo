@@ -101,9 +101,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.91000000000000003" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="0.91000000000000003" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.74117647058823533" green="0.51372549019607838" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.74117647060000003" green="0.51372549020000002" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="30"/>
+                            <fontDescription key="fontDescription" name="DisneyPark" family="DisneyPark" pointSize="35"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="textShadowColor" red="0.92549019610000005" green="0.83921568629999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>

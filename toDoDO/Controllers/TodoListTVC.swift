@@ -15,8 +15,6 @@ class TodoListTVC: SwipeTVC {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
-    
-    
     var itemsArray: Results<Item>?
     
     let realm = try! Realm()
@@ -46,11 +44,13 @@ class TodoListTVC: SwipeTVC {
             if let navBarColor = UIColor(hexString: colorCategory) {
                 
                 navBar.backgroundColor = navBarColor
-                navBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : ContrastColorOf(navBarColor, returnFlat: true)]
-                searchBar.barTintColor = navBarColor
+                navBar.largeTitleTextAttributes = [
+                    NSAttributedString.Key.font: UIFont(name: "DisneyPark", size: 50)!,
+                    NSAttributedString.Key.foregroundColor : ContrastColorOf(navBarColor, returnFlat: true)
+                ]
                 
+                searchBar.barTintColor = navBarColor
             }
-            
         }
     }
     
@@ -72,6 +72,7 @@ class TodoListTVC: SwipeTVC {
             if let color = UIColor(hexString: chosenCategory!.color)?.darken(byPercentage: CGFloat(indexPath.row) / CGFloat(itemsArray!.count)) {
                 cell.backgroundColor = color
                 cell.textLabel?.textColor = UIColor(contrastingBlackOrWhiteColorOn: color, isFlat: true)
+                cell.textLabel?.font = UIFont(name: "DisneyPark", size: 30)
             }
         }
         

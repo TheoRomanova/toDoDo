@@ -30,8 +30,8 @@ class CategoryTVC: SwipeTVC {
         guard let navBar = navigationController?.navigationBar else { fatalError("Navigation controller does not exist") }
         
         navBar.backgroundColor = UIColor(hexString: "BD83CE")
-        // navBar.largeTitleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "ChalkboardSE-Bold", size: 40)!]
-        
+        navBar.largeTitleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "DisneyPark", size: 40)!, NSAttributedString.Key.foregroundColor: UIColor.white]
+     
     }
     
     // MARK: - TableView datSource Methods
@@ -50,6 +50,7 @@ class CategoryTVC: SwipeTVC {
         if let color = UIColor(hexString: categoriesArray?[indexPath.row].color ?? "C8B0FF") {
             cell.backgroundColor = color
             cell.textLabel?.textColor = UIColor(contrastingBlackOrWhiteColorOn: color, isFlat: true)
+            cell.textLabel?.font = UIFont(name: "DisneyPark", size: 30)
         }
         
         return cell
