@@ -8,9 +8,12 @@
 
 import UIKit
 import SwipeCellKit
+import AVFoundation
 
 class SwipeTVC: UITableViewController, SwipeTableViewCellDelegate {
     
+    private var player: AVAudioPlayer?
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,7 +22,6 @@ class SwipeTVC: UITableViewController, SwipeTableViewCellDelegate {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SwipeTableViewCell
         cell.delegate = self
         return cell
@@ -33,7 +35,7 @@ class SwipeTVC: UITableViewController, SwipeTableViewCellDelegate {
             self.deleteAction(at: indexPath)
         }
         
-        
+        playSound()
         deleteAction.image = UIImage(named: "delete-icon")?.withTintColor(.flatWhiteDark())
         deleteAction.title = ""
         deleteAction.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
@@ -48,4 +50,11 @@ class SwipeTVC: UITableViewController, SwipeTableViewCellDelegate {
     
     func deleteAction(at indexPath: IndexPath) {
     }
+
+    private func playSound() {
+        let url = Bundle.main.url(forResource: "delete", withExtension: "wav")        
+        player = try! AVAudioPlayer(contentsOf: url!)
+        player?.play()
+    }
+
 }

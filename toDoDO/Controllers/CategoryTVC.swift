@@ -10,12 +10,15 @@ import UIKit
 import RealmSwift
 import SwipeCellKit
 import ChameleonFramework
+import AVFoundation
 
 class CategoryTVC: SwipeTVC {
     
     private var categoriesArray: Results<Category>?
     
-   private let realm = try! Realm()
+    private let realm = try! Realm()
+    
+    private var player: AVAudioPlayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,23 +29,20 @@ class CategoryTVC: SwipeTVC {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         guard let navBar = navigationController?.navigationBar else { fatalError("Navigation controller does not exist") }
         
         navBar.backgroundColor = UIColor(hexString: "BD83CE")
         navBar.largeTitleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "DisneyPark", size: 40)!, NSAttributedString.Key.foregroundColor: UIColor.white]
-     
+        
     }
     
     // MARK: - TableView datSource Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return categoriesArray?.count ?? 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
         
         cell.textLabel?.text = categoriesArray?[indexPath.row].title ?? "No Categories Added Yet"
@@ -59,6 +59,7 @@ class CategoryTVC: SwipeTVC {
     //MARK: - Add New Category
     
     @IBAction func addNewCategory(_ sender: UIBarButtonItem) {
+        playSound(song: "add")
         
         var textField = UITextField()
         
@@ -70,6 +71,7 @@ class CategoryTVC: SwipeTVC {
             newCategory.dateCreated = Date()
             newCategory.color = UIColor.randomFlat().hexValue()
             self.save(category: newCategory)
+            self.playSound(song: "wasAdded")
         }
         
         alert.addTextField { (field) in
@@ -97,7 +99,6 @@ class CategoryTVC: SwipeTVC {
     }
     
     func loadCategories() {
-        
         categoriesArray = realm.objects(Category.self).sorted(byKeyPath: "dateCreated", ascending: false) //пряи добавлении каждой единцы срабатывает 
         tableView.reloadData()
         
@@ -106,12 +107,11 @@ class CategoryTVC: SwipeTVC {
     // MARK: - Table view Delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        playSound(song: "nextPage")
         performSegue(withIdentifier: "showItems", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         let destinationVC = segue.destination as! TodoListTVC
         
         if let indexPath = tableView.indexPathForSelectedRow {
@@ -122,7 +122,6 @@ class CategoryTVC: SwipeTVC {
     //MARK: - Delete Data From Swipe
     
     override func deleteAction(at indexPath: IndexPath) {
-        
         if let categoryForDeletion = self.categoriesArray?[indexPath.row] {
             do {
                 try self.realm.write {
@@ -132,6 +131,13 @@ class CategoryTVC: SwipeTVC {
                 print("Error deleting category \(error)")
             }
         }
+    }
+    //MARK: - AVFoundation
+    
+    func playSound(song: String) {
+        let url = Bundle.main.url(forResource: song, withExtension: "wav")
+        player = try! AVAudioPlayer(contentsOf: url!)
+        player?.play()
     }
 }
 

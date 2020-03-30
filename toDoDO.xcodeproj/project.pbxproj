@@ -17,6 +17,11 @@
 		68819EAA242797BD006CAC27 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68819EA9242797BD006CAC27 /* Category.swift */; };
 		68819EAD2427C200006CAC27 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68819EAC2427C200006CAC27 /* Item.swift */; };
 		6898C6CC242BA9A800278920 /* assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6898C6CB242BA9A800278920 /* assets.xcassets */; };
+		689D887624325A7800B85A2A /* nextPage.wav in Resources */ = {isa = PBXBuildFile; fileRef = 689D887324325A7800B85A2A /* nextPage.wav */; };
+		689D887824325A7800B85A2A /* add.wav in Resources */ = {isa = PBXBuildFile; fileRef = 689D887524325A7800B85A2A /* add.wav */; };
+		689D887B243260B000B85A2A /* wasAdded.wav in Resources */ = {isa = PBXBuildFile; fileRef = 689D887A243260B000B85A2A /* wasAdded.wav */; };
+		689D887D243262D600B85A2A /* delete.wav in Resources */ = {isa = PBXBuildFile; fileRef = 689D887C243262D600B85A2A /* delete.wav */; };
+		689D88812432643800B85A2A /* bool.wav in Resources */ = {isa = PBXBuildFile; fileRef = 689D88802432643800B85A2A /* bool.wav */; };
 		68A0FD08242A079400FB8C2B /* SwipeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A0FD07242A079400FB8C2B /* SwipeTVC.swift */; };
 		68D9E368242B8C1400209284 /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		68D9E381242BA05100209284 /* DisneyPark.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68D9E380242BA05100209284 /* DisneyPark.ttf */; };
@@ -53,6 +58,11 @@
 		68819EA9242797BD006CAC27 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		68819EAC2427C200006CAC27 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		6898C6CB242BA9A800278920 /* assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = assets.xcassets; sourceTree = SOURCE_ROOT; };
+		689D887324325A7800B85A2A /* nextPage.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = nextPage.wav; sourceTree = "<group>"; };
+		689D887524325A7800B85A2A /* add.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = add.wav; sourceTree = "<group>"; };
+		689D887A243260B000B85A2A /* wasAdded.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wasAdded.wav; sourceTree = "<group>"; };
+		689D887C243262D600B85A2A /* delete.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = delete.wav; sourceTree = "<group>"; };
+		689D88802432643800B85A2A /* bool.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bool.wav; sourceTree = "<group>"; };
 		68A0FD07242A079400FB8C2B /* SwipeTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTVC.swift; sourceTree = "<group>"; };
 		68D9E36A242B8C3800209284 /* ChameleonFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ChameleonFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68D9E36D242B8C4C00209284 /* ChameleonFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ChameleonFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +150,7 @@
 				68819E9B2427788E006CAC27 /* LaunchScreen.storyboard */,
 				68819E962427788B006CAC27 /* toDoDO.xcdatamodeld */,
 				6898C6CB242BA9A800278920 /* assets.xcassets */,
+				689D887924325A8900B85A2A /* Music */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -151,6 +162,18 @@
 				68819EAC2427C200006CAC27 /* Item.swift */,
 			);
 			path = DataModel;
+			sourceTree = "<group>";
+		};
+		689D887924325A8900B85A2A /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				689D887524325A7800B85A2A /* add.wav */,
+				689D887A243260B000B85A2A /* wasAdded.wav */,
+				689D887C243262D600B85A2A /* delete.wav */,
+				689D887324325A7800B85A2A /* nextPage.wav */,
+				689D88802432643800B85A2A /* bool.wav */,
+			);
+			path = Music;
 			sourceTree = "<group>";
 		};
 		68D9E358242B73D100209284 /* Fonts */ = {
@@ -236,8 +259,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				68D9E381242BA05100209284 /* DisneyPark.ttf in Resources */,
+				689D887D243262D600B85A2A /* delete.wav in Resources */,
 				68819E9D2427788E006CAC27 /* LaunchScreen.storyboard in Resources */,
 				6898C6CC242BA9A800278920 /* assets.xcassets in Resources */,
+				689D887824325A7800B85A2A /* add.wav in Resources */,
+				689D887B243260B000B85A2A /* wasAdded.wav in Resources */,
+				689D88812432643800B85A2A /* bool.wav in Resources */,
+				689D887624325A7800B85A2A /* nextPage.wav in Resources */,
 				68819E952427788B006CAC27 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

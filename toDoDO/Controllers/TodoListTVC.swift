@@ -10,6 +10,7 @@ import UIKit
 import RealmSwift
 import SwipeCellKit
 import ChameleonFramework
+import AVFoundation
 
 class TodoListTVC: SwipeTVC {
     
@@ -18,6 +19,8 @@ class TodoListTVC: SwipeTVC {
     private var itemsArray: Results<Item>?
     
     private let realm = try! Realm()
+    
+    private var player: AVAudioPlayer?
     
     var chosenCategory: Category? {
         didSet {
@@ -57,12 +60,10 @@ class TodoListTVC: SwipeTVC {
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return itemsArray?.count ?? 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
         
         if let item = itemsArray?[indexPath.row] {
@@ -81,6 +82,7 @@ class TodoListTVC: SwipeTVC {
     // MARK: - Table view Delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        playSound(song: "bool")
         
         if let item = itemsArray?[indexPath.row] {
             
@@ -99,7 +101,7 @@ class TodoListTVC: SwipeTVC {
     //MARK: - Add New Items
     
     @IBAction func addNewItems(_ sender: UIBarButtonItem) {
-        
+        playSound(song: "add")
         var textField = UITextField()
         
         let alert = UIAlertController(title: "Add Item", message: "", preferredStyle: .alert)       
@@ -111,8 +113,8 @@ class TodoListTVC: SwipeTVC {
                         let newItem = Item()
                         newItem.title = textField.text!
                         newItem.dateCreated = Date()
-                        
                         mainCategory.items.append(newItem)
+                        self.playSound(song: "wasAdded")
                     }
                 } catch {
                     print("Error saving new items, \(error)")
@@ -127,6 +129,8 @@ class TodoListTVC: SwipeTVC {
         }
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
+        
+       
     }
     
     //MARK: - Model Manupulation Methods
@@ -152,6 +156,16 @@ class TodoListTVC: SwipeTVC {
             }
         }
     }
+    
+    //MARK: - AVFoundation
+    
+    func playSound(song: String) {
+        let url = Bundle.main.url(forResource: song, withExtension: "wav")
+        
+        player = try! AVAudioPlayer(contentsOf: url!)
+        
+        player?.play()
+    }
 }
 
 //MARK: - UISearchBarDelegate Methods
@@ -159,13 +173,11 @@ class TodoListTVC: SwipeTVC {
 extension TodoListTVC: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
         itemsArray = itemsArray?.filter("title CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "dateCreated", ascending: false)
         tableView.reloadData()
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
         if searchBar.text?.count == 0 {
             loadItems()
             
