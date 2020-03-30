@@ -13,9 +13,9 @@ import ChameleonFramework
 
 class CategoryTVC: SwipeTVC {
     
-    var categoriesArray: Results<Category>?
+    private var categoriesArray: Results<Category>?
     
-    let realm = try! Realm()
+   private let realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()

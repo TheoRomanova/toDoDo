@@ -15,9 +15,9 @@ class TodoListTVC: SwipeTVC {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var itemsArray: Results<Item>?
+    private var itemsArray: Results<Item>?
     
-    let realm = try! Realm()
+    private let realm = try! Realm()
     
     var chosenCategory: Category? {
         didSet {
