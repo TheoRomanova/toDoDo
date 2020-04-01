@@ -64,7 +64,7 @@ class CategoryTVC: SwipeTVC {
         var textField = UITextField()
         
         let alert = UIAlertController(title: "Add new Category", message: "", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Add", style: .default) { (action) in
+        let actionAdd = UIAlertAction(title: "Add", style: .default) { (action) in
             
             let newCategory = Category()
             newCategory.title = textField.text!
@@ -78,8 +78,10 @@ class CategoryTVC: SwipeTVC {
             textField = field
             textField.placeholder = "Add new category here"
         }
+        let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(actionAdd)
+        alert.addAction(actionCancel)
         
-        alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
     

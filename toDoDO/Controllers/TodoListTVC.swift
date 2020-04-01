@@ -37,7 +37,6 @@ class TodoListTVC: SwipeTVC {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         if let colorCategory = chosenCategory?.color {
             
             title = chosenCategory?.title
@@ -105,8 +104,7 @@ class TodoListTVC: SwipeTVC {
         var textField = UITextField()
         
         let alert = UIAlertController(title: "Add Item", message: "", preferredStyle: .alert)       
-        let action = UIAlertAction(title: "Add", style: .default) { (action) in
-            
+        let actionAdd = UIAlertAction(title: "Add", style: .default) { (action) in
             if let mainCategory = self.chosenCategory {
                 do {
                     try self.realm.write {
@@ -127,16 +125,15 @@ class TodoListTVC: SwipeTVC {
             textField = field
             textField.placeholder = "Add new Item here"
         }
-        alert.addAction(action)
+        let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(actionAdd)
+        alert.addAction(actionCancel)
         present(alert, animated: true, completion: nil)
-        
-       
     }
     
     //MARK: - Model Manupulation Methods
     
     func loadItems() {
-        
         itemsArray = chosenCategory?.items.sorted(byKeyPath: "dateCreated", ascending: false)
         tableView.reloadData()
     }
@@ -144,7 +141,6 @@ class TodoListTVC: SwipeTVC {
     //MARK: - Delete Data From Swipe
     
     override func deleteAction(at indexPath: IndexPath) {
-        
         if let categoryForDeletion = itemsArray?[indexPath.row] {
             
             do {
