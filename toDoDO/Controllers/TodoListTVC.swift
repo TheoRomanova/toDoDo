@@ -50,7 +50,6 @@ class TodoListTVC: SwipeTVC {
                     NSAttributedString.Key.font: UIFont(name: "DisneyPark", size: 50)!,
                     NSAttributedString.Key.foregroundColor : ContrastColorOf(navBarColor, returnFlat: true)
                 ]
-                
                 searchBar.barTintColor = navBarColor
             }
         }
