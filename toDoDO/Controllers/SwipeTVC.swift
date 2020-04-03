@@ -31,14 +31,15 @@ class SwipeTVC: UITableViewController, SwipeTableViewCellDelegate {
         guard orientation == .right else { return nil }
         
         let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
-            
             self.deleteAction(at: indexPath)
         }
         
         playSound()
-        deleteAction.image = UIImage(named: "delete-icon")?.withTintColor(.flatWhiteDark())
-        deleteAction.title = ""
-        deleteAction.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+        //        deleteAction.image = UIImage(named: "delete-icon")?.withTintColor(.flatWhiteDark())
+        //        deleteAction.title = ""
+        deleteAction.backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.1717308096, blue: 0.3966416737, alpha: 1)
+        deleteAction.textColor = #colorLiteral(red: 0.9562705159, green: 0.9567890763, blue: 0.9720047116, alpha: 1)
+        deleteAction.font = UIFont(name: "DisneyPark", size: 30)
         return [deleteAction]
     }
     
