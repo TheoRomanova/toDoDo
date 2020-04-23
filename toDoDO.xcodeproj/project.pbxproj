@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,16 +16,16 @@
 		68819EA524277A1A006CAC27 /* TodoListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68819EA424277A1A006CAC27 /* TodoListTVC.swift */; };
 		68819EAA242797BD006CAC27 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68819EA9242797BD006CAC27 /* Category.swift */; };
 		68819EAD2427C200006CAC27 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68819EAC2427C200006CAC27 /* Item.swift */; };
+		688837F12451B62C0047CA9A /* add.wav in Resources */ = {isa = PBXBuildFile; fileRef = 688837F02451B62C0047CA9A /* add.wav */; };
+		688837F32451B6300047CA9A /* nextPage.wav in Resources */ = {isa = PBXBuildFile; fileRef = 688837F22451B6300047CA9A /* nextPage.wav */; };
 		6898C6CC242BA9A800278920 /* assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6898C6CB242BA9A800278920 /* assets.xcassets */; };
-		689D887624325A7800B85A2A /* nextPage.wav in Resources */ = {isa = PBXBuildFile; fileRef = 689D887324325A7800B85A2A /* nextPage.wav */; };
 		689D887B243260B000B85A2A /* wasAdded.wav in Resources */ = {isa = PBXBuildFile; fileRef = 689D887A243260B000B85A2A /* wasAdded.wav */; };
 		689D887D243262D600B85A2A /* delete.wav in Resources */ = {isa = PBXBuildFile; fileRef = 689D887C243262D600B85A2A /* delete.wav */; };
 		689D88812432643800B85A2A /* bool.wav in Resources */ = {isa = PBXBuildFile; fileRef = 689D88802432643800B85A2A /* bool.wav */; };
-		689D88832432663800B85A2A /* add.wav in Resources */ = {isa = PBXBuildFile; fileRef = 689D88822432663800B85A2A /* add.wav */; };
 		68A0FD08242A079400FB8C2B /* SwipeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A0FD07242A079400FB8C2B /* SwipeTVC.swift */; };
 		68D9E368242B8C1400209284 /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		68D9E381242BA05100209284 /* DisneyPark.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68D9E380242BA05100209284 /* DisneyPark.ttf */; };
-		7ACEDC6070949C0B98688005 /* Pods_toDoDO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AAACFA6DF9A4FE556B66864 /* Pods_toDoDO.framework */; };
+		9CB4B32868F3C9F501B24218 /* libPods-toDoDO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 727F5ED0D153541100868A9E /* libPods-toDoDO.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -45,7 +45,6 @@
 /* Begin PBXFileReference section */
 		201CB4C8D27C90FB788D5045 /* Pods-toDoDO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-toDoDO.debug.xcconfig"; path = "Target Support Files/Pods-toDoDO/Pods-toDoDO.debug.xcconfig"; sourceTree = "<group>"; };
 		2D82F8A851E590895906E7AE /* Pods-toDoDO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-toDoDO.release.xcconfig"; path = "Target Support Files/Pods-toDoDO/Pods-toDoDO.release.xcconfig"; sourceTree = "<group>"; };
-		3AAACFA6DF9A4FE556B66864 /* Pods_toDoDO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_toDoDO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68819E8A2427788B006CAC27 /* toDoDO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = toDoDO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68819E8D2427788B006CAC27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		68819E8F2427788B006CAC27 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,12 +56,12 @@
 		68819EA424277A1A006CAC27 /* TodoListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListTVC.swift; sourceTree = "<group>"; };
 		68819EA9242797BD006CAC27 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		68819EAC2427C200006CAC27 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		688837F02451B62C0047CA9A /* add.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = add.wav; path = ../../../../../music/add.wav; sourceTree = "<group>"; };
+		688837F22451B6300047CA9A /* nextPage.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = nextPage.wav; path = ../../../../../music/nextPage.wav; sourceTree = "<group>"; };
 		6898C6CB242BA9A800278920 /* assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = assets.xcassets; sourceTree = SOURCE_ROOT; };
-		689D887324325A7800B85A2A /* nextPage.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = nextPage.wav; sourceTree = "<group>"; };
 		689D887A243260B000B85A2A /* wasAdded.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wasAdded.wav; sourceTree = "<group>"; };
 		689D887C243262D600B85A2A /* delete.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = delete.wav; sourceTree = "<group>"; };
 		689D88802432643800B85A2A /* bool.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bool.wav; sourceTree = "<group>"; };
-		689D88822432663800B85A2A /* add.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = add.wav; sourceTree = "<group>"; };
 		68A0FD07242A079400FB8C2B /* SwipeTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTVC.swift; sourceTree = "<group>"; };
 		68D9E36A242B8C3800209284 /* ChameleonFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ChameleonFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68D9E36D242B8C4C00209284 /* ChameleonFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ChameleonFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +69,7 @@
 		68D9E371242B8C5400209284 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68D9E372242B8C5400209284 /* SwipeCellKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwipeCellKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68D9E380242BA05100209284 /* DisneyPark.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DisneyPark.ttf; sourceTree = SOURCE_ROOT; };
+		727F5ED0D153541100868A9E /* libPods-toDoDO.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-toDoDO.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7ACEDC6070949C0B98688005 /* Pods_toDoDO.framework in Frameworks */,
+				9CB4B32868F3C9F501B24218 /* libPods-toDoDO.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,10 +167,10 @@
 		689D887924325A8900B85A2A /* Music */ = {
 			isa = PBXGroup;
 			children = (
-				689D88822432663800B85A2A /* add.wav */,
 				689D887A243260B000B85A2A /* wasAdded.wav */,
 				689D887C243262D600B85A2A /* delete.wav */,
-				689D887324325A7800B85A2A /* nextPage.wav */,
+				688837F22451B6300047CA9A /* nextPage.wav */,
+				688837F02451B62C0047CA9A /* add.wav */,
 				689D88802432643800B85A2A /* bool.wav */,
 			);
 			path = Music;
@@ -192,7 +192,7 @@
 				68D9E372242B8C5400209284 /* SwipeCellKit.framework */,
 				68D9E36D242B8C4C00209284 /* ChameleonFramework.framework */,
 				68D9E36A242B8C3800209284 /* ChameleonFramework.framework */,
-				3AAACFA6DF9A4FE556B66864 /* Pods_toDoDO.framework */,
+				727F5ED0D153541100868A9E /* libPods-toDoDO.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -209,7 +209,6 @@
 				68819E872427788B006CAC27 /* Frameworks */,
 				68819E882427788B006CAC27 /* Resources */,
 				68D9E369242B8C1400209284 /* Embed Frameworks */,
-				9A8E6BA1868380B0DC0B164E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -258,14 +257,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				688837F32451B6300047CA9A /* nextPage.wav in Resources */,
 				68D9E381242BA05100209284 /* DisneyPark.ttf in Resources */,
 				689D887D243262D600B85A2A /* delete.wav in Resources */,
 				68819E9D2427788E006CAC27 /* LaunchScreen.storyboard in Resources */,
 				6898C6CC242BA9A800278920 /* assets.xcassets in Resources */,
+				688837F12451B62C0047CA9A /* add.wav in Resources */,
 				689D887B243260B000B85A2A /* wasAdded.wav in Resources */,
 				689D88812432643800B85A2A /* bool.wav in Resources */,
-				689D88832432663800B85A2A /* add.wav in Resources */,
-				689D887624325A7800B85A2A /* nextPage.wav in Resources */,
 				68819E952427788B006CAC27 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,23 +272,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		9A8E6BA1868380B0DC0B164E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-toDoDO/Pods-toDoDO-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-toDoDO/Pods-toDoDO-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-toDoDO/Pods-toDoDO-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		A0D7AF6D838C3B2FFCA0E7EB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

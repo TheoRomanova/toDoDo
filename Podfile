@@ -2,7 +2,8 @@
 
 target 'toDoDO' do
 
-  use_frameworks!
+  
+  use_modular_headers!
 
   # Pods for toDoDO
 

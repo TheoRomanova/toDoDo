@@ -32,10 +32,11 @@ class CategoryTVC: SwipeTVC {
         guard let navBar = navigationController?.navigationBar else { fatalError("Navigation controller does not exist") }
         
         navBar.backgroundColor = UIColor(hexString: "BD83CE")
-        navBar.largeTitleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "DisneyPark", size: 40)!, NSAttributedString.Key.foregroundColor: UIColor.white]
-        
+        navBar.largeTitleTextAttributes = [
+            NSAttributedString.Key.font: UIFont(name: "DisneyPark", size: 35)!,
+            NSAttributedString.Key.foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        ]
     }
-    
     // MARK: - TableView datSource Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

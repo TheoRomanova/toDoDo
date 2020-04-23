@@ -47,7 +47,7 @@ class TodoListTVC: SwipeTVC {
                 
                 navBar.backgroundColor = navBarColor
                 navBar.largeTitleTextAttributes = [
-                    NSAttributedString.Key.font: UIFont(name: "DisneyPark", size: 50)!,
+                    NSAttributedString.Key.font: UIFont(name: "DisneyPark", size: 40)!,
                     NSAttributedString.Key.foregroundColor : ContrastColorOf(navBarColor, returnFlat: true)
                 ]
                 searchBar.barTintColor = navBarColor
