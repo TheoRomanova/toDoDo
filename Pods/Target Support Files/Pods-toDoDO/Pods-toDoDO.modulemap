@@ -1,4 +1,4 @@
-module Pods_toDoDO {
+framework module Pods_toDoDO {
   umbrella header "Pods-toDoDO-umbrella.h"
 
   export *

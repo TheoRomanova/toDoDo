@@ -19,12 +19,12 @@ class CategoryTVC: SwipeTVC {
     private let realm = try! Realm()
     
     private var player: AVAudioPlayer?
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.backgroundColor = UIColor(hexString: "BD83CE")
-        
+
         loadCategories()
     }
     
@@ -33,7 +33,7 @@ class CategoryTVC: SwipeTVC {
         
         navBar.backgroundColor = UIColor(hexString: "BD83CE")
         navBar.largeTitleTextAttributes = [
-            NSAttributedString.Key.font: UIFont(name: "DisneyPark", size: 35)!,
+            NSAttributedString.Key.font: UIFont(name: "DisneyPark", size: 40)!,
             NSAttributedString.Key.foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         ]
     }
@@ -51,7 +51,7 @@ class CategoryTVC: SwipeTVC {
         if let color = UIColor(hexString: categoriesArray?[indexPath.row].color ?? "C8B0FF") {
             cell.backgroundColor = color
             cell.textLabel?.textColor = UIColor(contrastingBlackOrWhiteColorOn: color, isFlat: true)
-            cell.textLabel?.font = UIFont(name: "DisneyPark", size: 30)
+            cell.textLabel?.font = UIFont(name: "DisneyPark", size: 40)
         }
         
         return cell
@@ -60,6 +60,7 @@ class CategoryTVC: SwipeTVC {
     //MARK: - Add New Category
     
     @IBAction func addNewCategory(_ sender: UIBarButtonItem) {
+      print("gsrbgsfgb")
         playSound(song: "add")
         
         var textField = UITextField()
@@ -142,6 +143,8 @@ class CategoryTVC: SwipeTVC {
         player = try! AVAudioPlayer(contentsOf: url!)
         player?.play()
     }
+
+
 }
 
 

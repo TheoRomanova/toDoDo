@@ -13,10 +13,11 @@ import AVFoundation
 class SwipeTVC: UITableViewController, SwipeTableViewCellDelegate {
     
     private var player: AVAudioPlayer?
-   
+  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+  
         tableView.rowHeight = 65.0
         tableView.separatorStyle = .none
     }
@@ -30,7 +31,7 @@ class SwipeTVC: UITableViewController, SwipeTableViewCellDelegate {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         guard orientation == .right else { return nil }
         
-        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+        let deleteAction = SwipeAction(style: .destructive, title: "") { action, indexPath in
             self.deleteAction(at: indexPath)
         }
         
@@ -38,7 +39,6 @@ class SwipeTVC: UITableViewController, SwipeTableViewCellDelegate {
         //        deleteAction.image = UIImage(named: "delete-icon")?.withTintColor(.flatWhiteDark())
         //        deleteAction.title = ""
         deleteAction.backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.1717308096, blue: 0.3966416737, alpha: 1)
-        deleteAction.textColor = #colorLiteral(red: 0.9562705159, green: 0.9567890763, blue: 0.9720047116, alpha: 1)
         deleteAction.font = UIFont(name: "DisneyPark", size: 30)
         return [deleteAction]
     }
