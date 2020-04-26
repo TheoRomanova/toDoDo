@@ -41,7 +41,8 @@ class TodoListTVC: SwipeTVC {
             
             title = chosenCategory?.title
             
-            guard let navBar = navigationController?.navigationBar else { fatalError("Navigation controller does not exist") }
+            guard let navBar = navigationController?.navigationBar else {
+                fatalError("Navigation controller does not exist") }
             
             if let navBarColor = UIColor(hexString: colorCategory) {
                 
@@ -77,6 +78,7 @@ class TodoListTVC: SwipeTVC {
         
         return cell
     }
+    
     // MARK: - Table view Delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -96,6 +98,7 @@ class TodoListTVC: SwipeTVC {
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }
+    
     //MARK: - Add New Items
     
     @IBAction func addNewItems(_ sender: UIBarButtonItem) {

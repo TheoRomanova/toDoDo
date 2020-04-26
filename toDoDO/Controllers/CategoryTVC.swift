@@ -19,12 +19,12 @@ class CategoryTVC: SwipeTVC {
     private let realm = try! Realm()
     
     private var player: AVAudioPlayer?
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.backgroundColor = UIColor(hexString: "BD83CE")
-
+        
         loadCategories()
     }
     
@@ -33,10 +33,11 @@ class CategoryTVC: SwipeTVC {
         
         navBar.backgroundColor = UIColor(hexString: "BD83CE")
         navBar.largeTitleTextAttributes = [
-            NSAttributedString.Key.font: UIFont(name: "DisneyPark", size: 40)!,
+            NSAttributedString.Key.font: UIFont(name: "DisneyPark", size: 30)!,
             NSAttributedString.Key.foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         ]
     }
+    
     // MARK: - TableView datSource Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -60,7 +61,7 @@ class CategoryTVC: SwipeTVC {
     //MARK: - Add New Category
     
     @IBAction func addNewCategory(_ sender: UIBarButtonItem) {
-      print("gsrbgsfgb")
+        print("gsrbgsfgb")
         playSound(song: "add")
         
         var textField = UITextField()
@@ -105,7 +106,6 @@ class CategoryTVC: SwipeTVC {
     func loadCategories() {
         categoriesArray = realm.objects(Category.self).sorted(byKeyPath: "dateCreated", ascending: false) //пряи добавлении каждой единцы срабатывает 
         tableView.reloadData()
-        
     }
     
     // MARK: - Table view Delegate
@@ -113,6 +113,7 @@ class CategoryTVC: SwipeTVC {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         playSound(song: "nextPage")
         performSegue(withIdentifier: "showItems", sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -136,6 +137,7 @@ class CategoryTVC: SwipeTVC {
             }
         }
     }
+    
     //MARK: - AVFoundation
     
     func playSound(song: String) {
@@ -143,8 +145,6 @@ class CategoryTVC: SwipeTVC {
         player = try! AVAudioPlayer(contentsOf: url!)
         player?.play()
     }
-
-
 }
 
 
